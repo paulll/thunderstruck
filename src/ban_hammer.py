@@ -26,7 +26,7 @@ async def handler(event):
 	
 		# Удаляем оба сообщения,
 		# Добавляем в игнор юзера
-		message = = await client.get_messages(event.chat_id, ids=event.reply_to_msg_id)	
+		message = await client.get_messages(event.chat_id, ids=event.reply_to_msg_id)	
 		await client.delete_messages(event.chat_id, [event.message, message] )
 
 		banlist.add(message.from_id)
