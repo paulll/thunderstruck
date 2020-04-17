@@ -5,8 +5,7 @@ client = TelegramClient(
 	'alertbot', 
 	api_id, 
 	api_hash,
-	connection=connection.ConnectionTcpMTProxyRandomizedIntermediate,
-	proxy=('fi.a47.me', 1443, 'dd720945c9394dea5751b1958ac6d2aadd')
+	connection=connection.ConnectionTcpMTProxyRandomizedIntermediate
 )
 
 client.start(bot_token=bot_token)
