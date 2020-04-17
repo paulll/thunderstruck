@@ -25,7 +25,6 @@ async def handler(event):
 		if do_forward_messages:
 			await client.forward_messages(channel_id, event.reply_to_msg_id, event.chat_id)
 		else:
-			result = await client(functions.messages.GetMessagesRequest(id=[event.reply_to_msg_id]))
-			messsage = result.messages[0]
-			await client.send_message(channel_id, messsage)
+			message = await client.get_messages(event.chat_id, ids=event.reply_to_msg_id)
+			await client.send_message(channel_id, message)
 		await client.delete_messages(event.chat_id, event.message)
