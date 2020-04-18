@@ -1,5 +1,6 @@
 import logging
 import src.alert_handler
+import src.repost_handler
 import src.ban_hammer
 
 from src.client import client
