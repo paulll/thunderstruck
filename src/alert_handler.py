@@ -10,7 +10,10 @@ async def handler(event):
 	if event.reply_to_msg_id and event.message.message == '!':
 		# От случайных людей и для прозрачности в целом
 		if event.chat_id != chat_id:
-			await client.reply("Сорри, бот принимает сообщения только из конфы")
+			# Отвечаем только если писали в личку боту
+			# Иначе просто молчим
+			if event.chat_id > 0:
+				await client.reply("Сорри, бот принимает сообщения только из конфы")
 			return False
 
 		# Удаление повторных и забаненных
