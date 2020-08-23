@@ -108,6 +108,8 @@ async def remove_older_messages():
 @client.on(events.NewMessage)
 async def handler(event):
     print(event)
+    if event.chat_id not in { chat_id, channel_id }:
+        return
     if event.reply_to_msg_id and event.message.message == "!save":
         to_delete.remove(event.reply_to_msg_id)
         await event.message.delete()
