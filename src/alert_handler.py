@@ -60,6 +60,7 @@ async def handler(event):
             str.maketrans("", "", string.punctuation)
         )
         if any(re.match(x, text) for x in important_patterns):
+            messages_already_forwarded.add(event.message.id)
             if do_forward_messages:
                 await event.message.forward_to(channel_id)
             else:
