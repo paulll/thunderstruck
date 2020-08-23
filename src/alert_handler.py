@@ -50,12 +50,11 @@ async def handler(event):
             await client.send_message(channel_id, message)
         await client.delete_messages(event.chat_id, event.message)
 
-    else:
+    elif event.chat_id == chat_id and False:
         important_patterns = {
-            r"^(офицер|бомж|лейтеха|лейт|капитан|кэп|опер|деж|дежурный|оперативный|беляев|собака|полкан|полковник|подпол|майор|режим) на (\d|четвертом|пятом|шестом|седьмом|восьмом|девятом)",
-            r"^режим в общаге$",
-            r"^бес в общаге$",
-        }
+            r"^(воппер|офик|генерал|бес|генералы|офицер|бомж|лейтеха|лейт|капитан|кэп|опер|деж|дежурный|оперативный|беляев|собака|полкан|полковник|подпол|майор|режим) на (\d|четвертом|пятом|шестом|седьмом|восьмом|девятом)",
+            r"^(режим|бес) в общаге$"
+		}
 
         text = event.message.message.lower().translate(
             str.maketrans("", "", string.punctuation)

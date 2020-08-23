@@ -70,6 +70,12 @@ def get_message_ttl(text):
         "лейтёха",
         "лейт",
         "лейтенант",
+		"офик",
+		"воппер",
+		"кэп",
+		"кэпчик",
+		"ген",
+		"генерал"
     }
     if any(
         re.search(r"\b{}\b".format(signature), text_lowercase)
