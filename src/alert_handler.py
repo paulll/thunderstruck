@@ -50,7 +50,7 @@ async def handler(event):
             await client.send_message(channel_id, message)
         await client.delete_messages(event.chat_id, event.message)
 
-    elif event.chat_id == chat_id and False:
+    elif event.chat_id == chat_id and event.message.from_id is not None:
         important_patterns = {
             r"^(воппер|офик|генерал|бес|генералы|офицер|бомж|лейтеха|лейт|капитан|кэп|опер|деж|дежурный|оперативный|беляев|собака|полкан|полковник|подпол|майор|режим) на (\d|четвертом|пятом|шестом|седьмом|восьмом|девятом)",
             r"^(режим|бес) в общаге$"
