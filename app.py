@@ -1,4 +1,5 @@
 import logging
+import src.yoba_handler
 import src.alert_handler
 import src.repost_handler
 import src.ban_hammer

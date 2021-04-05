@@ -28,6 +28,10 @@ day = 24 * hour
 def get_message_ttl(text):
     text_lowercase = text.lower()
 
+    # /команды
+    if text.startswith('/'):
+        return minute
+
     # Объявления
     sell_buy_signatures = {
         "#объявление",
@@ -114,7 +118,7 @@ async def handler(event):
         to_delete.remove(event.reply_to_msg_id)
         await event.message.delete()
         return
-    await deletion_task(event.message)
+    client.loop.create_task(deletion_task(event.message))
 
 
 client.loop.create_task(remove_older_messages())
